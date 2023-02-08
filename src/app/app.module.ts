@@ -44,7 +44,7 @@ import { ProductListComponent } from './shop/components/product-list.component';
 
 
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtinterceptorService, multi: true } ],
+  // providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtinterceptorService, multi: true } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
