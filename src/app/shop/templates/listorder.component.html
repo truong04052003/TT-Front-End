@@ -1,1 +1,117 @@
-<p>listorder works!</p>
+
+    <!-- Start Banner Area -->
+    <section class="banner-area organic-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+                <div class="col-first">
+                    <h1>Giỏ Hàng Của Bạn</h1>
+                    <nav class="d-flex align-items-center">
+                        <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                        <a href="category.html">Cart</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
+    <!--================Cart Area =================-->
+    <section class="cart_area">
+        <div class="container">
+            <div class="cart_inner">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tên Sản Phẩm</th>
+                                <th scope="col">Giá Sản Phẩm</th>
+                                <th scope="col">Số Lượng</th>
+                                <th scope="col">Tổng Tiền</th>
+                                <th scope="col">Hoạt Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let order of orders">
+                                <td>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <img style="margin-left: 0px;" [src]="url+order.image" alt="" width="100px" height="100px"
+                                            class="img-fluid">
+                                        </div>
+                                        <div class="media-body">
+                                            <p>{{ order.name }}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5>{{ order.price| number }} vnđ</h5>
+                                </td>
+                                <td>
+                                    <ul class="number">
+                                        <li>
+                                          <a onclick="this.parentNode.querySelector('input[type=number]').stepDown();"
+                                            (click)="urlUpdatequantity(order.id, quantity.value)">
+                                            <button type="button" class="minus">-</button>
+                                          </a>
+                                          <input #quantity name="quantity" min="1" style="width: 60px" type="number"
+                                            value="{{ order.quantity }}" />
+                                          <a onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                            (click)="urlUpdatequantity(order.id, quantity.value)">
+                                            <button type="button" class="plus">+</button>
+                                          </a>
+                                        </li>
+                                      </ul>
+                                </td>
+                                <td>{{ order.price * order.quantity | number }} VND</td>
+                                <td class="">
+                                    <a (click)="deleteCart(order.id)"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                      </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <h4>Tổng Tiền Phải Trả :</h4>
+                                </td>
+                                <td>
+                                        <h4 id="tong"> {{ totalPrice| number }} VND </h4>
+                                </td>
+                            </tr>
+                           
+                            <tr class="out_button_area">
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <div class="checkout_btn_inner d-flex align-items-center">
+                                        <a class="gray_btn" href="#">Thanh Toán</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Cart Area =================-->
