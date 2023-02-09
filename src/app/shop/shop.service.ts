@@ -34,7 +34,6 @@ export class ShopService {
     return this.http.get<Images[]>(environment.urlAllImage + '/' + id);
   }
 
-  
 
   addToCart(id: number) {
     return this.http.get(environment.urlAddToCart + id);
