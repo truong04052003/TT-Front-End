@@ -17,7 +17,7 @@
 						<h6>Nhà Cung Cấp:{{ products.category.name }}</h6>
 						<h6>Số Lượng:{{ products.quantity }}</h6>
 						<p>{{ products.description }}</p>
-							<a class="primary-btn" href="#">Thêm vào giỏ hàng</a>
+							<a class="primary-btn" (click)="addToCart(product.id)">Thêm vào giỏ hàng</a>
 					</div>
 				</div>
 			</div>
