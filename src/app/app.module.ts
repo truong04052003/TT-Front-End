@@ -20,6 +20,7 @@ import { OrderDetailComponent } from './shop/components/order-detail.component';
 import { HomeComponent } from './shop/components/home.component';
 import { ProductDetailComponent } from './shop/components/product-detail.component';
 import { ProductListComponent } from './shop/components/product-list.component';
+import { ListorderComponent } from './shop/components/listorder.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,12 @@ import { ProductListComponent } from './shop/components/product-list.component';
     HeaderComponent,
     FooterComponent,
     OrderDetailComponent,
+
+    HomeComponent,
+    ProductDetailComponent,
+    ProductListComponent,
+    ListorderComponent
+
    ],
   imports: [
     ReactiveFormsModule,
