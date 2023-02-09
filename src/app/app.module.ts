@@ -27,12 +27,13 @@ import { ListorderComponent } from './shop/components/listorder.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
     OrderDetailComponent,
+
     HomeComponent,
     ProductDetailComponent,
     ProductListComponent,
     ListorderComponent
+
    ],
   imports: [
     ReactiveFormsModule,

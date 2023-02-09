@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'shop.com',
+
+    path: 'TTflute.com',
     loadChildren: () => import('./shop/shop.module').then(module => module.ShopModule)
   },
 ];

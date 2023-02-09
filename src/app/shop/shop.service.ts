@@ -33,6 +33,9 @@ export class ShopService {
   product_images(id: any): Observable<Images[]> {
     return this.http.get<Images[]>(environment.urlAllImage + '/' + id);
   }
+
+  
+
   addToCart(id: number) {
     return this.http.get(environment.urlAddToCart + id);
   }
@@ -65,4 +68,5 @@ export class ShopService {
   storeOrder(request: any){
     return this.http.post(environment.urlOrderStore, request);
   }
+
 }
