@@ -9,17 +9,18 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                             dolore
                             magna aliqua.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row" >
-              
-                <div class="col-lg-3 col-md-6" *ngFor="let product of products">
-                    <div class="single-product">
-                        <img class="img-fluid" [src]=" url+'public/uploads/'+ product.image" alt="">
-                        <div class="product-details">
-                            <h6>{{product.name}}</h6>
-                            <div class="price">
+                <div class="row" >
+                    
+                    <!-- <h1>234567890</h1> -->
+                    <div class="col-lg-3 col-md-6" *ngFor="let product of products">
+                        <div class="single-product">
+                            <img class="img-fluid" [src]=" url+'public/uploads/'+ product.image" alt="">
+                            <div class="product-details">
+                                <h6>{{product.name}}</h6>
+                                <div class="price">
                                 <h6>{{product.price}}</h6>
                                 <h6 class="l-through">{{product.price + (20/100)*product.price}}</h6>
                             </div>
@@ -27,15 +28,15 @@
 
                                 <a href="" class="social-info">
                                     <span class="ti-bag"></span>
-                                    <p class="hover-text">Giỏ hàng</p>
+                                    <a class="hover-text" (click)="addToCart(product.id)">Giỏ hàng</a>
                                 </a>
                                 <a href="" class="social-info">
                                     <span class="lnr lnr-heart"></span>
                                     <p class="hover-text">Yêu thích</p>
                                 </a>
                                 <a href="" class="social-info">
-                                    <span class="lnr lnr-move"></span>
-                                    <p class="hover-text">Chi tiết</p>
+                                    <span class="lnr lnr-move" [routerLink]="['/product-detail/' + product.id]"></span>
+                                    <a class="hover-text" [routerLink]="['/product-detail/' + product.id]">Chi tiết</a>
                                 </a>
                             </div>
                         </div>
