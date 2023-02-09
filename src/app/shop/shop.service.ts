@@ -24,4 +24,5 @@ export class ShopService {
   product_images(id: any): Observable<Images[]> {
     return this.http.get<Images[]>(environment.urlAllImage + '/' + id);
   }
+  
 }

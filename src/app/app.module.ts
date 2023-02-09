@@ -26,11 +26,7 @@ import { ProductListComponent } from './shop/components/product-list.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
     OrderDetailComponent,
-    HomeComponent,
-    ProductDetailComponent,
-    ProductListComponent,
    ],
   imports: [
     ReactiveFormsModule,
