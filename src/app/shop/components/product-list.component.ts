@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ShopService } from '../shop.service';
-
+import Swal from 'sweetalert2';
+// import swal from 'swal'; 
 @Component({
   selector: 'app-product-list',
   templateUrl: './../templates/product-list.component.html',
 })
 export class ProductListComponent implements OnInit  {
   constructor(private shopService: ShopService) { 
-    this.product_list();
   }
   products: any[] = [];
   categories: any[] = [];
@@ -17,13 +17,38 @@ export class ProductListComponent implements OnInit  {
   p: any = 1;
   url: string = environment.url;
   ngOnInit(): void {
-    // this.product_list();
+    this.product_list();
     // this.category_list();
   }
 
   product_list() {
     this.shopService.product_list().subscribe(res => {
       this.products = res;
+      // console.log(this.products);
     });
+  }
+  addToCart(id: number) {
+    this.shopService.addToCart(id).subscribe(res => {
+      // thông báo
+      const Toast = Swal.mixin({
+        toast: true,
+        width: 400,
+        position: 'top-end',
+        color: 'rgb(255, 255, 255)',
+        padding: '2em',
+        showConfirmButton: false,
+        background: 'rgb(108, 108, 108)',
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Sản Phẩm Đã được thêm vào giỏ hàng!'
+      })
+    })
   }
 }
