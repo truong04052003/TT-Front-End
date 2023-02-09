@@ -15,12 +15,8 @@ import { HeaderComponent } from './shop/components/header.component';
 import { ShopRoutingModule } from './shop/shop-routing.module';
 import { ShopModule } from './shop/shop.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './shop/components/login.component';
 import { OrderDetailComponent } from './shop/components/order-detail.component';
 import { HomeComponent } from './shop/components/home.component';
-import { ProductDetailComponent } from './shop/components/product-detail.component';
-import { ProductListComponent } from './shop/components/product-list.component';
-import { ListorderComponent } from './shop/components/listorder.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +24,6 @@ import { ListorderComponent } from './shop/components/listorder.component';
     HeaderComponent,
     FooterComponent,
     OrderDetailComponent,
-
-    HomeComponent,
-    ProductDetailComponent,
-    ProductListComponent,
-    ListorderComponent
-
    ],
   imports: [
     ReactiveFormsModule,
