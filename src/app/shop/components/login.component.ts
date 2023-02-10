@@ -18,59 +18,59 @@ export class LoginComponent {
   ) { }
 
   ngOnInit(): void {
-    if(!this.AuthService.checkAuth()){
-    this.loginForm = new FormGroup({
-      'email':new FormControl('',[
-        Validators.required,
-        Validators.email,
-      ]),
-      'password': new FormControl('',[
-        Validators.required,
-        Validators.minLength(2)
-      ]),
-    })
-  } else {
-    this._Router.navigate(['home']);
+    if (!this.AuthService.checkAuth()) {
+      this.loginForm = new FormGroup({
+        'email': new FormControl('', [
+          Validators.required,
+          Validators.email,
+        ]),
+        'password': new FormControl('', [
+          Validators.required,
+          Validators.minLength(2)
+        ]),
+      })
+    } else {
+      this._Router.navigate(['home']);
+    }
   }
-  }
-  onSubmit():void{
+  onSubmit(): void {
     let data = this.loginForm.value;
     let User: User = {
-      email:data.email,
-      password:data.password,
+      email: data.email,
+      password: data.password,
     }
     console.log(User);
 
-    this.AuthService.login(User).subscribe(res =>{
+    this.AuthService.login(User).subscribe(res => {
       console.log(res);
 
-        localStorage.setItem('access_token', res.access_token);
+      localStorage.setItem('access_token', res.access_token);
 
-        this._Router.navigate(['home']);
+      this._Router.navigate(['home']);
 
-        // thông báo
-        const Toast = Swal.mixin({
-          toast: true,
-          width: 400,
-          position: 'top-end',
-          color: 'rgb(255, 255, 255)',
-          padding: '2em',
-          showConfirmButton: false,
-          background: 'rgb(108, 108, 108)',
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-          }
-        })
+      // thông báo
+      const Toast = Swal.mixin({
+        toast: true,
+        width: 400,
+        position: 'top-end',
+        color: 'rgb(255, 255, 255)',
+        padding: '2em',
+        showConfirmButton: false,
+        background: 'rgb(108, 108, 108)',
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
 
-        Toast.fire({
-          icon: 'success',
-          title: 'Đăng nhập thành công!'
-        })
-        // kết thúc thông báo
+      Toast.fire({
+        icon: 'success',
+        title: 'Đăng nhập thành công!'
+      })
+      // kết thúc thông báo
     }, err => {
-      if(err.status === 401) {
+      if (err.status === 401) {
         // thông báo
         const Toast = Swal.mixin({
           toast: true,

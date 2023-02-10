@@ -10,6 +10,8 @@ import { ShopService } from '../shop.service';
 export class ListorderComponent {
   customer_id: any;
   orders: any;
+  listCart: any;
+  cartSubtotal: number = 0;
   totalPrice: number = 0;
   url: string = environment.url + 'public/uploads/';
   message: {} = {};
@@ -63,4 +65,16 @@ export class ListorderComponent {
       this.ngOnInit();
     });
   }
-  }
+  //   checkCart(){
+  //     this.getAllCart();
+  //   }
+  //   getAllCart() {
+  //     this.ShopService.getAllCart().subscribe(res => {
+  //         this.listCart = res;
+  //         this.cartSubtotal = 0;
+  //         for (let cart of this.listCart) {
+  //             this.cartSubtotal += cart.price * cart.quantity;
+  //         }
+  //     });      
+  // }
+}

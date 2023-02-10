@@ -30,7 +30,8 @@
                 <div class="col-lg-8">
                     <h3>Chi tiết thanh toán</h3>
 
-                    <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                    <form [formGroup]="CheckoutFrom" (ngSubmit)="Order()" class="row contact_form" action="#"
+                        method="post" novalidate="novalidate">
                         <div class="col-md-6 form-group p_star">
                             <label for="post_code">Email</label>
                             <input type="email" formControlName="email" class="form-control" value="">
@@ -48,11 +49,11 @@
                             <input type="text" class="form-control" formControlName="phone" value="">
                             <div *ngIf="CheckoutFrom.invalid && (CheckoutFrom.dirty || CheckoutFrom.touched)">
                                 <small class="form-text text-danger"
-                                    *ngIf="CheckoutFrom.get('phone')?.errors?.['required'] ">Số điện thoại bắt
-                                    buộc</small>
+                                    *ngIf="CheckoutFrom.get('phone')?.errors?.['required'] ">Số
+                                    điện thoại bắt buộc</small>
                                 <small class="form-text text-danger"
-                                    *ngIf="CheckoutFrom.get('phone')?.errors?.['pattern'] ">Trường giá phải là kiểu
-                                    số</small>
+                                    *ngIf="CheckoutFrom.get('phone')?.errors?.['pattern'] ">Trường
+                                    giá phải là kiểu số</small>
                             </div>
                         </div>
                         <div class="col-md-6 form-group p_star">
@@ -83,37 +84,39 @@
                             <textarea class="form-control" name="message" id="message" rows="1"
                                 placeholder="Order Notes"></textarea>
                         </div>
+                        <button type="submit" class="primary-btn">Đặt hàng</button>
 
-                        <div class="col-lg-8">
-                            <div class="order_box">
-                                <h2>Tóm Tắt Đơn Hàng</h2>
-                                <div>
-                                    <ul class="list">
-                                        <li><a href="#">Sản phẩm <span>Tổng</span></a></li>
-                                        <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span
-                                                    class="last">$720.00</span></a></li>
-                                        <li><a href="#">Fresh Tomatoes <span class="middle">x 02</span> <span
-                                                    class="last">$720.00</span></a></li>
-                                        <li><a href="#">Fresh Brocoli <span class="middle">x 02</span> <span
-                                                    class="last">$720.00</span></a></li>
-                                    </ul>
-                                    <ul class="list list_2">
-                                        <li><a href="#">Tổng phụ <span>$2160.00</span></a></li>
-                                        <li><a href="#">Phí vận chuyển <span>Flat rate: $50.00</span></a></li>
-                                        <li><a href="#">Tổng <span>$2210.00</span></a></li>
-                                    </ul>
-
-                                </div>
-                                <div class="creat_account">
-                                    <input type="checkbox" id="f-option4" name="selector">
-                                    <label for="f-option4">Tôi đã đọc và chấp nhận </label>
-                                    <a href="#">Điều khoản & điều kiện*</a>
-                                </div>
-                                <button type="submit" class="primary-btn">Đặt hàng</button>
-
-                            </div>
-                        </div>
                     </form>
+                </div>
+
+
+                <div class="col-lg-8">
+                    <div class="order_box">
+                        <h2>Tóm Tắt Đơn Hàng</h2>
+                        <div>
+                            <ul class="list">
+                                <li><a href="#">Sản phẩm <span>Tổng</span></a></li>
+                                <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span
+                                            class="last">$720.00</span></a></li>
+                                <li><a href="#">Fresh Tomatoes <span class="middle">x 02</span> <span
+                                            class="last">$720.00</span></a></li>
+                                <li><a href="#">Fresh Brocoli <span class="middle">x 02</span> <span
+                                            class="last">$720.00</span></a></li>
+                            </ul>
+                            <ul class="list list_2">
+                                <li><a href="#">Tổng phụ <span>$2160.00</span></a></li>
+                                <li><a href="#">Phí vận chuyển <span>Flat rate: $50.00</span></a></li>
+                                <li><a href="#">Tổng <span>$2210.00</span></a></li>
+                            </ul>
+
+                        </div>
+                        <div class="creat_account">
+                            <input type="checkbox" id="f-option4" name="selector">
+                            <label for="f-option4">Tôi đã đọc và chấp nhận </label>
+                            <a href="#">Điều khoản & điều kiện*</a>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>

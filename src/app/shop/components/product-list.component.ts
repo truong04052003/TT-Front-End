@@ -7,8 +7,8 @@ import Swal from 'sweetalert2';
   selector: 'app-product-list',
   templateUrl: './../templates/product-list.component.html',
 })
-export class ProductListComponent implements OnInit  {
-  constructor(private shopService: ShopService) { 
+export class ProductListComponent implements OnInit {
+  constructor(private shopService: ShopService) {
   }
   products: any[] = [];
   categories: any[] = [];

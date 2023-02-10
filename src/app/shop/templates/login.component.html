@@ -1,77 +1,79 @@
-
-
-
-	<!-- Start Banner Area -->
-	<section class="banner-area organic-breadcrumb">
-		<div class="container">
-			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-				<div class="col-first">
-					<h1>Login/Register</h1>
-					<nav class="d-flex align-items-center">
-						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="category.html">Login/Register</a>
-					</nav>
-				</div>
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+			<div class="col-first">
+				<h1>Login/Register</h1>
+				<nav class="d-flex align-items-center">
+					<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+					<a href="category.html">Login/Register</a>
+				</nav>
 			</div>
 		</div>
-	</section>
-	<!-- End Banner Area -->
+	</div>
+</section>
+<!-- End Banner Area -->
 
-	<!--================Login Box Area =================-->
-	<section class="login_box_area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="login_box_img">
-						<img class="img-fluid" src="assets/img/login.jpg" alt="">
-						<div class="hover">
-							<h4>Chào mừng bạn đến với chúng tôi !!</h4>
-							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
-							<a class="primary-btn" [routerLink]="['/register']">Create an Account</a>
-						</div>
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="login_box_img">
+					<img class="img-fluid" src="assets/img/login.jpg" alt="">
+					<div class="hover">
+						<h4>Chào mừng bạn đến với chúng tôi !!</h4>
+						<p>MUA BÁN SÁO TRÚC CHUYÊN NGHIỆP, SÁO TRÚC CAO CẤP SỐ 1 VIỆT NAM</p>
+						<a class="primary-btn" [routerLink]="['/register']">Create an Account</a>
 					</div>
 				</div>
-				<div class="col-lg-6">
-					<div class="login_form_inner">
-						<h3>Login</h3>
-						<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="row login_form"  method="post" id="contactForm" novalidate="novalidate">
-							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
-                                <small class="label label-danger" *ngIf="!loginForm.controls['email']?.valid && (loginForm.controls['email']?.dirty
+			</div>
+			<div class="col-lg-6">
+				<div class="login_form_inner">
+					<h3>Login</h3>
+					<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="row login_form" method="post"
+						id="contactForm" novalidate="novalidate">
+						<div class="col-md-12 form-group">
+							<input type="email" class="form-control" id="email" name="email" placeholder="Email"
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+							<small class="label label-danger"
+								*ngIf="!loginForm.controls['email']?.valid && (loginForm.controls['email']?.dirty
                                 ||loginForm.controls['email']?.touched) && loginForm.controls['email']?.errors?.['required']"
-                                    class="help-block text-danger">Trường bắt buộc!</small>
-                                  <small class="label label-danger" *ngIf="!loginForm.controls['email']?.valid && (loginForm.controls['email']?.dirty
+								class="help-block text-danger">Trường bắt buộc!</small>
+							<small class="label label-danger"
+								*ngIf="!loginForm.controls['email']?.valid && (loginForm.controls['email']?.dirty
                                 ||loginForm.controls['email']?.touched) && loginForm.controls['email']?.errors?.['email']"
-                                    class="help-block text-danger">Email không đúng địng dạng!</small>
-							</div>
-							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-                                <small class="label label-danger" *ngIf="!loginForm.controls['password']?.valid && (loginForm.controls['password']?.dirty
+								class="help-block text-danger">Email không đúng địng dạng!</small>
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="password" class="form-control" id="password" name="password"
+								placeholder="Password" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Password'">
+							<small class="label label-danger"
+								*ngIf="!loginForm.controls['password']?.valid && (loginForm.controls['password']?.dirty
                                 ||loginForm.controls['password']?.touched) && loginForm.controls['password']?.errors?.['required']"
-                                    class="help-block text-danger">Trường bắt buộc!</small>
-                                  <small class="label label-danger" *ngIf="!loginForm.controls['password']?.valid && (loginForm.controls['password']?.dirty
+								class="help-block text-danger">Trường bắt buộc!</small>
+							<small class="label label-danger"
+								*ngIf="!loginForm.controls['password']?.valid && (loginForm.controls['password']?.dirty
                                 ||loginForm.controls['password']?.touched) && loginForm.controls['password']?.errors?.['minlength']"
-                                    class="help-block text-danger">Mật khẩu tối thiểu 3 ký tự!</small><br />
-                                  <small class="label label-danger" *ngIf="error" class="help-block text-danger">Tài Khoản Hoặc Mật Khẩu
-                                    Không Đúng</small><br />
+								class="help-block text-danger">Mật khẩu tối thiểu 3 ký tự!</small><br />
+							<small class="label label-danger" *ngIf="error" class="help-block text-danger">Tài Khoản
+								Hoặc Mật Khẩu
+								Không Đúng</small><br />
+						</div>
+						<div class="col-md-12 form-group">
+							<div class="creat_account">
+								<input type="checkbox" id="f-option2" name="selector">
+								<label for="f-option2">Giữ tôi luôn đăng nhập</label>
 							</div>
-							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector">
-									<label for="f-option2">Giữ tôi luôn đăng nhập</label>
-								</div>
-							</div>
-							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="primary-btn">Đăng nhập</button>
-								<a href="#">Quên mật khẩu</a>
-							</div>
-						</form>
-					</div>
+						</div>
+						<div class="col-md-12 form-group">
+							<button type="submit" value="submit" class="primary-btn">Đăng nhập</button>
+							<a href="#">Quên mật khẩu</a>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-	</section>
-
-
-
-
+	</div>
+</section>

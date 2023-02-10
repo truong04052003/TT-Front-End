@@ -76,7 +76,7 @@ export class CheckoutComponent {
       customer_id: id,
     }
     console.log(Order);
-   
+
     this.ShopService.storeOrder(Order).subscribe(res => {
       order = res;
       Swal.fire({
