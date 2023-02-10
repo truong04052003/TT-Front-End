@@ -12,7 +12,7 @@ export class ProductDetailComponent {
     private shopService: ShopService,
     private _route: ActivatedRoute,
   ) { }
-  
+
   url: string = environment.url;
   id: any;
   product_id: any;
@@ -37,7 +37,7 @@ export class ProductDetailComponent {
     this.id = this._route.snapshot.params['id'];
     this.shopService.product_detail(this.id).subscribe(res => {
       this.products = res;
-      this.image1 = this.url + 'public/uploads/'+ this.products.image
+      this.image1 = this.url + 'public/uploads/' + this.products.image
     });
     // this.shopService.product_images(this.id).subscribe(res => {
     //   this.images = res;
