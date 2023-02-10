@@ -18,7 +18,7 @@ export class CheckoutComponent {
   email: any;
   listCart: any;
   cartSubtotal: number = 0;
-  url: any = environment.url;
+  url: any = environment.url + 'public/uploads/';
   message: {} = {};
   customer_id: any;
   totalPrice: number = 0;

@@ -4,6 +4,9 @@
         left: 800px;
         margin: -653px 0px 0px 0px;
     }
+    img.img-fluid {
+    margin: 12px 0px 0px 200px;
+}
 </style>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
@@ -77,12 +80,9 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <div class="creat_account">
-                                <h3>Chi tiết vận chuyển</h3>
-                                <input type="checkbox" id="f-option3" name="selector">
-                                <label for="f-option3">Vận chuyển đến địa chỉ khác?</label>
+                                <h3></h3>
+                                <label for="f-option3"></label>
                             </div>
-                            <textarea class="form-control" name="message" id="message" rows="1"
-                                placeholder="Order Notes"></textarea>
                         </div>
                         <button type="submit" class="primary-btn">Đặt hàng</button>
 
@@ -92,30 +92,21 @@
 
                 <div class="col-lg-8">
                     <div class="order_box">
-                        <h2>Tóm Tắt Đơn Hàng</h2>
+                        <h2>Đơn Hàng Của Bạn</h2>
                         <div>
-                            <ul class="list">
-                                <li><a href="#">Sản phẩm <span>Tổng</span></a></li>
-                                <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span
-                                            class="last">$720.00</span></a></li>
-                                <li><a href="#">Fresh Tomatoes <span class="middle">x 02</span> <span
-                                            class="last">$720.00</span></a></li>
-                                <li><a href="#">Fresh Brocoli <span class="middle">x 02</span> <span
-                                            class="last">$720.00</span></a></li>
+                            <ul class="list" *ngFor="let order of orders">
+                                <li><a href="#">{{ order.name }}
+                                        <img style="margin-right: 200px;" [src]="url+order.image" alt="" width="100px"
+                                            height="100px" class="img-fluid">
+                                        <p>{{ order.price| number }} vnd x {{ order.quantity| number }} cái</p></a>
+                                <li>
+                                <hr>
                             </ul>
                             <ul class="list list_2">
-                                <li><a href="#">Tổng phụ <span>$2160.00</span></a></li>
-                                <li><a href="#">Phí vận chuyển <span>Flat rate: $50.00</span></a></li>
-                                <li><a href="#">Tổng <span>$2210.00</span></a></li>
+                                <li><h3>Tổng : {{ totalPrice| number }} VND </h3></li>
+                                <!-- <h1>{{ totalPrice| number }} VND </h1> -->
                             </ul>
-
                         </div>
-                        <div class="creat_account">
-                            <input type="checkbox" id="f-option4" name="selector">
-                            <label for="f-option4">Tôi đã đọc và chấp nhận </label>
-                            <a href="#">Điều khoản & điều kiện*</a>
-                        </div>
-
                     </div>
                 </div>
 
