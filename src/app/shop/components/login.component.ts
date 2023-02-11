@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from '../auth.service';
-import { User } from '../shop';
+import { Customer } from '../shop';
 
 @Component({
   selector: 'app-login',
@@ -18,30 +18,29 @@ export class LoginComponent {
   ) { }
 
   ngOnInit(): void {
-    if (!this.AuthService.checkAuth()) {
-      this.loginForm = new FormGroup({
-        'email': new FormControl('', [
-          Validators.required,
-          Validators.email,
-        ]),
-        'password': new FormControl('', [
-          Validators.required,
-          Validators.minLength(2)
-        ]),
-      })
-    } else {
-      this._Router.navigate(['home']);
-    }
+    // if (!this.AuthService.checkAuth()) {
+    //   this.loginForm = new FormGroup({
+    //     'email': new FormControl('', [
+    //       Validators.required,
+    //       Validators.email,
+    //     ]),
+    //     'password': new FormControl('', [
+    //       Validators.required,
+    //       Validators.minLength(2)
+    //     ]),
+    //   })
+    // } else {
+    //   this._Router.navigate(['home']);
+    // }
   }
-  onSubmit(): void {
-    let data = this.loginForm.value;
-    let User: User = {
-      email: data.email,
-      password: data.password,
+  onSubmit(value:any): void {
+    let Customer: Customer = {
+      email: value.email,
+      password: value.password,
     }
-    console.log(User);
+    console.log(Customer);
 
-    this.AuthService.login(User).subscribe(res => {
+    this.AuthService.login(Customer).subscribe(res => {
       console.log(res);
 
       localStorage.setItem('access_token', res.access_token);

@@ -32,64 +32,46 @@
             <div class="row">
                 <div class="col-lg-8">
                     <h3>Chi tiết thanh toán</h3>
-
-                    <form [formGroup]="CheckoutFrom" (ngSubmit)="Order()" class="row contact_form" action="#"
-                        method="post" novalidate="novalidate">
-                        <div class="col-md-6 form-group p_star">
+                    <form [formGroup]="CheckoutFrom" (ngSubmit)="Order()">
+                        <div class="checkout-country-code clearfix">
+                          <div class="form-group">
                             <label for="post_code">Email</label>
                             <input type="email" formControlName="email" class="form-control" value="">
+                          </div>
                         </div>
-                        <div class="col-md-6 form-group p_star">
-                            <label for="full_name">Tên Khách Hàng</label>
-                            <input formControlName="name" type="text" class="form-control" placeholder="">
-                            <div *ngIf="CheckoutFrom.invalid && (CheckoutFrom.dirty || CheckoutFrom.touched)">
-                                <small class="form-text text-danger"
-                                    *ngIf="CheckoutFrom.get('name')?.errors?.['required'] ">Trường Tên Bắt Buộc</small>
-                            </div>
+                        <div class="form-group">
+                          <label for="full_name">Tên Khách Hàng</label>
+                          <input formControlName="name" type="text" class="form-control" placeholder="">
+                          <div *ngIf="CheckoutFrom.invalid && (CheckoutFrom.dirty || CheckoutFrom.touched)">
+                            <small class="form-text text-danger" *ngIf="CheckoutFrom.get('name')?.errors?.['required'] ">Trường Tên Bắt Buộc</small>
+                          </div>
                         </div>
-                        <div class="col-md-6 form-group p_star">
+                        <div class="checkout-country-code clearfix">
+                          <div class="form-group">
                             <label for="post_code">Số Điện Thoại</label>
                             <input type="text" class="form-control" formControlName="phone" value="">
                             <div *ngIf="CheckoutFrom.invalid && (CheckoutFrom.dirty || CheckoutFrom.touched)">
-                                <small class="form-text text-danger"
-                                    *ngIf="CheckoutFrom.get('phone')?.errors?.['required'] ">Số
-                                    điện thoại bắt buộc</small>
-                                <small class="form-text text-danger"
-                                    *ngIf="CheckoutFrom.get('phone')?.errors?.['pattern'] ">Trường
-                                    giá phải là kiểu số</small>
+                              <small class="form-text text-danger" *ngIf="CheckoutFrom.get('phone')?.errors?.['required'] ">Số điện thoại bắt buộc</small>
+                              <small class="form-text text-danger" *ngIf="CheckoutFrom.get('phone')?.errors?.['pattern'] ">Trường giá phải là kiểu số</small>
                             </div>
+                          </div>
                         </div>
-                        <div class="col-md-6 form-group p_star">
-                            <label for="address">Địa Chỉ</label>
-                            <input formControlName="address" type="text" class="form-control" placeholder="">
-                            <small class="form-text text-primary">Ví dụ: 133 Lý Thường Kiệt/ Đông Hà/Quảng Trị</small>
-                            <small class="form-text text-danger"
-                                *ngIf="CheckoutFrom.get('address')?.errors?.['required'] "> Địa chỉ bắt buộc</small>
+                        <div class="form-group">
+                          <label for="address">Địa Chỉ</label>
+                          <input formControlName="address" type="text" class="form-control" placeholder="">
+                          <small class="form-text text-primary" >Ví dụ: 133 Lý Thường Kiệt/ Đông Hà/Quảng Trị</small>
+                          <small class="form-text text-danger" *ngIf="CheckoutFrom.get('address')?.errors?.['required'] "> Địa chỉ bắt buộc</small>
                         </div>
-                        <div class="col-md-6 form-group p_star">
-                            <div class="form-group">
-                                <label for="post_code">Ghi Chú</label>
-                                <input type="text" class="form-control" formControlName="note" value="">
-                            </div>
+                        <div class="checkout-country-code clearfix">
+                          <div class="form-group">
+                            <label for="post_code">Ghi Chú</label>
+                            <input type="text" class="form-control" formControlName="note" value="">
+                          </div>
                         </div>
-                        <div class="col-md-12 form-group">
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option2" name="selector">
-                                <label for="f-option2">Create an account?</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <div class="creat_account">
-                                <h3></h3>
-                                <label for="f-option3"></label>
-                            </div>
-                        </div>
-                        <button type="submit" class="primary-btn">Đặt hàng</button>
-
-                    </form>
+                        <button type="submit" class="btn btn-main pull-right">Đặt hàng</button>
+                      </form>
                 </div>
-
-
+                
                 <div class="col-lg-8">
                     <div class="order_box">
                         <h2>Đơn Hàng Của Bạn</h2>
