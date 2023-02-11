@@ -1,27 +1,33 @@
 <!--================Single Product Area =================-->
-<br>	
+<br>
 <div class="product_image_area">
-		<div class="container">
-			<div class="row s_product_inner">
-				<div class="col-lg-6">
-					<div class="s_Product_carousel">
-						<div class="single-prd-item">
-							<img class="img-fluid"  [src]="image1" [alt]="products.name">
-						</div>
+	<div class="container">
+		<div class="row s_product_inner">
+			<div class="col-lg-6">
+				<div class="s_Product_carousel">
+					<div class="single-prd-item">
+						<img class="img-fluid" [src]="image1" [alt]="products.name">
 					</div>
 				</div>
-				<div class="col-lg-5 offset-lg-1">
-					<div class="s_product_text">
-						<h3>{{ products.name }}</h3>
-						<h2>{{ products.price|number }}VND</h2>
-						<h6>Thể Loại:{{ products.category.name }}</h6>
-						<h6>Nhà Cung Cấp:{{ products.category.name }}</h6>
-						<h6>Số Lượng:{{ products.quantity }}</h6>
-						<p>{{ products.description }}</p>
-							<a class="primary-btn" (click)="addToCart(product.id)">Thêm vào giỏ hàng</a>
-					</div>
+			</div>
+			<div class="col-lg-5 offset-lg-1">
+				<div class="s_product_text">
+					<h3>{{ products.name }}</h3>
+					<h2>{{ products.price|number }}VND</h2>
+					<h6>Thể Loại:{{ products.category.name }}</h6>
+					<h6>Nhà Cung Cấp:{{ products.category.name }}</h6>
+					<h6>Số Lượng:{{ products.quantity }}</h6>
+					<p>{{ products.description }}</p>
+					<a class="primary-btn" (click)="addToCart(product.id)">Thêm vào giỏ hàng</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+</div>
+<!-- css ảnh  -->
+<style>
+	img.img-fluid {
+		width: 500px;
+		height: 400px;
+	}
+</style>

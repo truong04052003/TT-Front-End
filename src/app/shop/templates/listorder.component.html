@@ -33,8 +33,7 @@
                             <td>
                                 <div class="media">
                                     <div class="d-flex">
-                                        <img style="margin-left: 0px;" [src]="url+order.image" alt="" width="100px"
-                                            height="100px" class="img-fluid">
+                                        <img id="trendingprd" style="margin-left: 0px;" [src]="url+order.image" alt="" class="img-fluid">
                                     </div>
                                     <div class="media-body">
                                         <p>{{ order.name }}</p>
@@ -121,3 +120,10 @@
     </div>
 </section>
 <!--================End Cart Area =================-->
+<!-- CSS ảnh  -->
+<style>
+    img#trendingprd {
+    width: 100px;
+    height: 100px;
+}
+</style>
