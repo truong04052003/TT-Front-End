@@ -52,16 +52,16 @@ export class RegisterComponent {
       this.registerForm.get('confirmPassword')?.touched
     );
   }
-  onSubmit():void{
-
-      let data = this.registerForm.value;
+  onSubmit(value:any):void{
       let Customer: Customer = {
-        name:data.name,
-        phone:data.phone,
-        address:data.address,
-        email:data.email,
-        password:data.password,
+        name:value.name,
+        phone:value.phone,
+        address:value.address,
+        email:value.email,
+        password:value.password,
       }
+      console.log(Customer);
+      
       this._AuthService.register(Customer).subscribe(()=>{
         this._Router.navigate(['']);
       }, err => {

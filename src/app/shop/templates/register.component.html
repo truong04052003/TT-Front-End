@@ -21,75 +21,48 @@
             <div class="col-lg-6">
                 <div class="login_form_inner">
                     <h3>Đăng ký</h3>
-                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="row login_form" method="post">
+                    <form #formProduct="ngForm" (ngSubmit)="onSubmit(formProduct.value)" class="row login_form"
+                        method="post">
                         <div class="col-md-12 form-group">
-                            <input formControlName="name" type="text" id="name" class="form-control" name="name"
-                                placeholder="Họ và tên" />
-                            <small class="label label-danger"
-                                *ngIf="!registerForm.controls['name']?.valid && (registerForm.controls['name']?.dirty
-                                  ||registerForm.controls['name']?.touched) && registerForm.controls['name']?.errors?.['required']"
-                                class="help-block text-danger">Trường bắt buộc!</small>
+                            <input ngModel #name="ngModel" required type="text" class="form-control" name="name"
+                                placeholder="Họ và Tên">
+                            <p *ngIf="name.invalid && (name.dirty || name.touched) && name.errors?.['required']"
+                                class="help-block text-danger">Họ và Tên không được rỗng!</p>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                            <small class="label label-danger"
-                                *ngIf="!registerForm.controls['email']?.valid && (registerForm.controls['email']?.dirty
-                                ||registerForm.controls['email']?.touched) && registerForm.controls['email']?.errors?.['required']"
-                                class="help-block text-danger">Trường bắt buộc!</small>
-                            <small class="label label-danger"
-                                *ngIf="!registerForm.controls['email']?.valid && (registerForm.controls['email']?.dirty
-                                ||registerForm.controls['email']?.touched) && registerForm.controls['email']?.errors?.['email']"
-                                class="help-block text-danger">Email không đúng định dạng!</small>
-                            <small class="label label-danger" *ngIf="error" class="help-block text-danger">
-                                Email đã tồn tại
-                            </small>
+                            <input ngModel #email="ngModel" required type="text" class="form-control" name="email"
+                                placeholder="Email của bạn">
+                                <p *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['required']"
+                                class="help-block text-danger">Email không được rỗng!</p>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input formControlName="phone" type="text" id="phone" class="form-control" name="phone"
-                                placeholder="Số điện thoại" />
-                            <small class="label label-danger"
-                                *ngIf="!registerForm.controls['phone']?.valid && (registerForm.controls['phone']?.dirty
-                                  ||registerForm.controls['phone']?.touched) && registerForm.controls['phone']?.errors?.['required']"
-                                class="help-block text-danger">Trường bắt buộc!</small>
+                            <input ngModel #phone="ngModel" required type="text" class="form-control" name="phone"
+                                placeholder="Số điện thoại của bạn">
+                                <p *ngIf="phone.invalid && (phone.dirty || phone.touched) && phone.errors?.['required']"
+                                class="help-block text-danger">Số điện thoại không được rỗng!</p>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input formControlName="address" type="text" id="address" class="form-control"
-                                name="address " placeholder="Địa chỉ" />
-                            <small class="label label-danger" *ngIf="
-                                registerForm.controls['address']?.errors?.['required']"
-                                class="help-block text-danger">Trường bắt buộc</small>
+                            <input ngModel #address="ngModel" required type="text" class="form-control" name="address"
+                                placeholder="Địa chỉ của bạn">
+                                <p *ngIf="address.invalid && (address.dirty || address.touched) && address.errors?.['required']"
+                                class="help-block text-danger">Địa chỉ không được rỗng!</p>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="password" class="form-control" id="password" name="password"
-                                placeholder="Password">
-                            <small class="label label-danger"
-                                *ngIf="!registerForm.controls['password']?.valid && (registerForm.controls['password']?.dirty
-                                ||registerForm.controls['password']?.touched) && registerForm.controls['password']?.errors?.['required']"
-                                class="help-block text-danger">Trường bắt buộc!</small>
-                            <small class="label label-danger"
-                                *ngIf="!registerForm.controls['password']?.valid && (registerForm.controls['password']?.dirty
-                                ||registerForm.controls['password']?.touched) && registerForm.controls['password']?.errors?.['minlength']"
-                                class="help-block text-danger">Mật khẩu tối thiểu 5 ký tự!</small>
+                            <input ngModel #password="ngModel" required type="password" class="form-control" name="password"
+                                placeholder="Mật khẩu của bạn">
+                                <p *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['required']"
+                                class="help-block text-danger">Mật khẩu không được rỗng!</p>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input formControlName="confirmPassword" type="password" id="name" class="form-control"
-                                name="confirmPassword" placeholder="Xác nhận mật khẩu" />
+                            <input ngModel #confirmPassword="ngModel" required type="password" class="form-control"
+                                name="confirmPassword" placeholder="Xác nhận mật khẩu">
+                                <p *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched) && confirmPassword.errors?.['required']"
+                                class="help-block text-danger">Xác nhận mật khẩu không được rỗng!</p>
                         </div>
-                        <small class="label label-danger"
-                            *ngIf="!registerForm.controls['confirmPassword']?.valid && (registerForm.controls['confirmPassword']?.dirty
-                    ||registerForm.controls['confirmPassword']?.touched) && registerForm.controls['confirmPassword']?.errors?.['required']"
-                            class="help-block text-danger">Trường bắt buộc!</small>
-                        <small class="label label-danger"
-                            *ngIf="!registerForm.controls['confirmPassword']?.valid && (registerForm.controls['confirmPassword']?.dirty
-                    ||registerForm.controls['confirmPassword']?.touched) && registerForm.controls['confirmPassword']?.errors?.['minlength']"
-                            class="help-block text-danger">Mật khẩu tối thiểu 5 ký tự!</small>
-                        <small class="help-block text-danger" *ngIf="passwordMatchError"> Xác nhận mật khẩu không đúng!
-                        </small>
 
                         <div class="col-md-12 form-group">
-                            <button [disabled]="!registerForm.valid" type="submit" value="submit"
-                                class="primary-btn">Đăng ký</button>
-                            <a href="#">Quên mật khẩu</a>
+                            <button type="submit" [disabled]="!formProduct.valid" class="btn btn-primary">Đăng
+                                Kí</button>
                         </div>
                     </form>
                 </div>
