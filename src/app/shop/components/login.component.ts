@@ -18,20 +18,18 @@ export class LoginComponent {
   ) { }
 
   ngOnInit(): void {
-    // if (!this.AuthService.checkAuth()) {
-    //   this.loginForm = new FormGroup({
-    //     'email': new FormControl('', [
-    //       Validators.required,
-    //       Validators.email,
-    //     ]),
-    //     'password': new FormControl('', [
-    //       Validators.required,
-    //       Validators.minLength(2)
-    //     ]),
-    //   })
-    // } else {
-    //   this._Router.navigate(['home']);
-    // }
+    if (!this.AuthService.checkAuth()) {
+      this.loginForm = new FormGroup({
+        'email': new FormControl('', [
+          Validators.required,
+        ]),
+        'password': new FormControl('', [
+          Validators.required,
+        ]),
+      })
+    } else {
+      // this._Router.navigate(['home']);
+    }
   }
   onSubmit(value:any): void {
     let Customer: Customer = {
