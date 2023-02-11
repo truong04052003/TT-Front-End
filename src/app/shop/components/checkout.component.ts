@@ -92,6 +92,5 @@ export class CheckoutComponent {
         }
       })
     });
-
   }
 }

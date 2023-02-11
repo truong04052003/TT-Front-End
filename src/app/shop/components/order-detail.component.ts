@@ -20,13 +20,13 @@ export class OrderDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderId = this.route.snapshot.params['id'];
-    this.ShopService.showOrder(this.orderId).subscribe(res => {
+    this.ShopService. storeOrder(this.orderId).subscribe(res => {
       this.order = res;
       console.log(this.order);
       
-      // for(let orderDetail of this.order.order_details){
-      //   this.totalPrice += parseInt(orderDetail.price_at_time) * parseInt(orderDetail.quantity);
-      // }
+      for(let orderDetail of this.order.order_details){
+        this.totalPrice += parseInt(orderDetail.price_at_time) * parseInt(orderDetail.quantity);
+      }
     })
   }
 }
