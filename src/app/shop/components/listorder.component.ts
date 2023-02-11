@@ -18,7 +18,7 @@ export class ListorderComponent {
   constructor(
     private ShopService: ShopService,
     private route: ActivatedRoute,
-    // private _ShopService: ShopService,
+    private _ShopService: ShopService,
     private router: Router
   ) { }
 

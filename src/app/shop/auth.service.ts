@@ -29,5 +29,8 @@ export class AuthService {
   profile():Observable<Customer>{
     return this._HttpClient.get<Customer>(environment.urlProfile);
   }
+  logout(){
+    localStorage.removeItem('access_token');
+  }
   
 }

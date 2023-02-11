@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HttpHandler, HttpEvent, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtinterceptorService } from './../app/shop/jwtinterceptor.service';
+import { JWTInterceptorService } from './../app/shop/jwtinterceptor.service';
 
 
 import { AppComponent } from './app.component';
@@ -37,7 +37,9 @@ import { HomeComponent } from './shop/components/home.component';
 
 
   ],
+
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtinterceptorService, multi: true } ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
