@@ -37,7 +37,9 @@ import { HomeComponent } from './shop/components/home.component';
 
 
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JWTInterceptorService, multi: true } ],
+
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtinterceptorService, multi: true } ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

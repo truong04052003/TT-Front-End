@@ -79,6 +79,8 @@ export class CheckoutComponent {
 
     this.ShopService.storeOrder(Order).subscribe(res => {
       order = res;
+    console.log(order);
+
       Swal.fire({
         icon: 'success',
         title: 'Đặt hàng thành công!',
@@ -90,6 +92,5 @@ export class CheckoutComponent {
         }
       })
     });
-
   }
 }
