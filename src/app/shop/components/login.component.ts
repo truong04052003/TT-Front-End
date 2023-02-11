@@ -60,7 +60,6 @@ export class LoginComponent {
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
       })
-
       Toast.fire({
         icon: 'success',
         title: 'Đăng nhập thành công!'

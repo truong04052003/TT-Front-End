@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { ShopService } from '../shop.service';
@@ -7,10 +7,11 @@ import { ShopService } from '../shop.service';
   selector: 'app-home',
   templateUrl: './../templates/home.component.html',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   constructor(private shopService: ShopService) { }
   url: string = environment.url;
   trending_top: any[] = [];
+  products: any[] = [];
   product_New: any[] = []
   ngOnInit() {
     this.trending();

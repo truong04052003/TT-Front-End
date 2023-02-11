@@ -24,22 +24,25 @@
                 <!-- <h1>234567890</h1> -->
                 <div class="col-lg-3 col-md-6" *ngFor="let product of products">
                     <div class="single-product">
-                        <img class="img-fluid" [src]=" url+'public/uploads/'+ product.image" alt="">
+                        <img class="img-fluid" [src]=" url+'public/uploads/'+ product.image">
                         <div class="product-details">
-                            <h6>{{product.name}}</h6>
+                            <h6><a [routerLink]="['/product-detail/' + product.id]">{{ product.name }}</a></h6>
                             <div class="price">
                                 <h6>{{product.price| number}} VNĐ</h6>
                                 <h6 class="l-through">{{product.price + (20/100)*product.price| number}} VNĐ</h6>
                             </div>
                             <div class="prd-bottom">
-                                <a class="ti-bag" (click)="addToCart(product.id)"></a> <br>
-                                <a href="" class="social-info">
+                                <a (click)="addToCart(product.id)" class="social-info">
+                                    <span class="ti-bag"></span>
+                                    <p class="hover-text">Giỏ hàng</p>
+                                </a>
+                                <a href="#!" class="social-info">
                                     <span class="lnr lnr-heart"></span>
                                     <p class="hover-text">Yêu thích</p>
                                 </a>
-                                <a href="" class="social-info">
-                                    <span class="lnr lnr-move" [routerLink]="['/product-detail/' + product.id]"></span>
-                                    <a class="hover-text" [routerLink]="['/product-detail/' + product.id]">Chi tiết</a>
+                                <a [routerLink]="['/product-detail/' + product.id]" class="social-info">
+                                    <span class="lnr lnr-move"></span>
+                                    <p class="hover-text">Chi tiết</p>
                                 </a>
                             </div>
                         </div>
