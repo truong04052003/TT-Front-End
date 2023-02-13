@@ -103,7 +103,8 @@
                 <div class="col-lg-3 col-md-6" *ngFor="let product of trending_top">
                     <div class="single-product">
                         <a href="#!">
-                            <img id="trendingprd" [src]=" url+'public/uploads/'+ product.image" class="img-fluid" alt="">
+                            <img id="trendingprd" [src]=" url+'public/uploads/'+ product.image" class="img-fluid"
+                                alt="">
                             <div class="product-details">
                                 <a [routerLink]="['/product-detail/' + product.id]"></a>
                                 <h6>{{product.name}}</h6>
@@ -167,7 +168,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -199,4 +200,3 @@
     </div>
 </section>
 <!-- End brand Area -->
-

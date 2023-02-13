@@ -73,8 +73,23 @@
                 <input type="text" class="form-control" formControlName="note" value="">
               </div>
             </div>
-            <button type="submit" class="btn btn-main pull-right">Đặt hàng</button>
+            <button [disabled]="!CheckoutFrom.valid" type="submit" class="btn btn-main pull-right">Đặt hàng</button>
           </form>
+        </div>
+
+        <div *ngIf="!name" class="col-md-8">
+          <div class="row">
+            <div class="navbar-collapse collapse text-center">
+              <br><br><br><br>
+              <br><br><br><br>
+              <h1>Vui lòng đăng nhập trước khi đặt hàng nhé</h1>
+              <div class="navbar-collapse collapse text-center">
+                <a class="btn btn-main" [routerLink]="['/login']">Đăng nhập</a>
+              </div>
+            </div>
+            <br>
+            <br>
+          </div>
         </div>
 
         <div class="col-lg-8">

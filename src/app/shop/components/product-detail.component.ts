@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { ShopService } from '../shop.service';
@@ -28,6 +29,7 @@ export class ProductDetailComponent {
   images_array_1: any[] = [];
   inter: any;
   inter1: any;
+  
 
   image1: any;
   image_tt: any;
@@ -35,27 +37,35 @@ export class ProductDetailComponent {
 
   ngOnInit(): void {
     this.id = this._route.snapshot.params['id'];
-    this.shopService.product_detail(this.id).subscribe(res => {
+    this.shopService.product_detail(this.id).subscribe(res =>{
       this.products = res;
-      this.image1 = this.url + 'public/uploads/' + this.products.image
+      // console.log(res);
+      
+      for( let product of this.products){
+        this.product = product;
+        this.image1 = this.url_image+this.product.image;
+        this.cate_id=this.product.category_id;
+      }
+      // this.trending();image.product_images  this.product.image
     });
-    // this.shopService.product_images(this.id).subscribe(res => {
-    //   this.images = res;
-    //   this.imageAll = this.images.image_products
-    //   for (i = 0; i < this.imageAll.length; i++) {
-    //     this.image_tt = this.imageAll[i]
-    //     this.images_array.push(this.image_tt.image)
-    //   }
-    //   this.images_array.push(this.products.image);
-    //   var i = 0;
-    //   this.inter = setInterval(() => {
-    //     this.image1 = this.url +  this.images_array[i];
-    //     i++;
-    //     if (i >= this.images_array.length) {
-    //       i = 0;
-    //     }
-    //   }, 3000)
-    // });
+
+   this.shopService.product_images(this.id).subscribe(res => {
+      this.images = res;
+      this.imageAll = this.images.image_products
+      for (i = 0; i < this.imageAll.length; i++) {
+        this.image_tt = this.imageAll[i]
+        this.images_array.push(this.image_tt.image)
+      }
+      this.images_array.push(this.products.image);
+      var i = 0;
+      this.inter = setInterval(() => {
+        this.image1 = this.url + this.images_array[i];
+        i++;
+        if (i >= this.images_array.length) {
+          i = 0;
+        }
+      }, 3000)
+    });
 
   }
   addToCart(id: number) {
@@ -83,10 +93,9 @@ export class ProductDetailComponent {
       // kết thúc thông báo
     })
   }
-  changeImage(image: any) {
-    this.image1 = this.url + image;
+  changeImage(image:any){
+    this.image1 = this.url_image + image;
   }
-
   resetInterval() {
     clearInterval(this.inter);
   }

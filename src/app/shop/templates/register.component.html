@@ -3,17 +3,21 @@
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
-                <h1>Login/Register</h1>
+                <h1>Đăng ký</h1>
                 <nav class="d-flex align-items-center">
-                    <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="category.html">Login/Register</a>
+                    <a href="index.html">Trang chủ<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html">Đăng ký</a>
                 </nav>
             </div>
         </div>
     </div>
 </section>
 <!-- End Banner Area -->
-
+<style>
+    .col-lg-6 {
+        margin-left: 25%;
+    }
+</style>
 <!--================Login Box Area =================-->
 <section class="login_box_area section_gap">
     <div class="container">
@@ -32,31 +36,31 @@
                         <div class="col-md-12 form-group">
                             <input ngModel #email="ngModel" required type="text" class="form-control" name="email"
                                 placeholder="Email của bạn">
-                                <p *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['required']"
+                            <p *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['required']"
                                 class="help-block text-danger">Email không được rỗng!</p>
                         </div>
                         <div class="col-md-12 form-group">
                             <input ngModel #phone="ngModel" required type="text" class="form-control" name="phone"
                                 placeholder="Số điện thoại của bạn">
-                                <p *ngIf="phone.invalid && (phone.dirty || phone.touched) && phone.errors?.['required']"
+                            <p *ngIf="phone.invalid && (phone.dirty || phone.touched) && phone.errors?.['required']"
                                 class="help-block text-danger">Số điện thoại không được rỗng!</p>
                         </div>
                         <div class="col-md-12 form-group">
                             <input ngModel #address="ngModel" required type="text" class="form-control" name="address"
                                 placeholder="Địa chỉ của bạn">
-                                <p *ngIf="address.invalid && (address.dirty || address.touched) && address.errors?.['required']"
+                            <p *ngIf="address.invalid && (address.dirty || address.touched) && address.errors?.['required']"
                                 class="help-block text-danger">Địa chỉ không được rỗng!</p>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input ngModel #password="ngModel" required type="password" class="form-control" name="password"
-                                placeholder="Mật khẩu của bạn">
-                                <p *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['required']"
+                            <input ngModel #password="ngModel" required type="password" class="form-control"
+                                name="password" placeholder="Mật khẩu của bạn">
+                            <p *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['required']"
                                 class="help-block text-danger">Mật khẩu không được rỗng!</p>
                         </div>
                         <div class="col-md-12 form-group">
                             <input ngModel #confirmPassword="ngModel" required type="password" class="form-control"
                                 name="confirmPassword" placeholder="Xác nhận mật khẩu">
-                                <p *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched) && confirmPassword.errors?.['required']"
+                            <p *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched) && confirmPassword.errors?.['required']"
                                 class="help-block text-danger">Xác nhận mật khẩu không được rỗng!</p>
                         </div>
 
@@ -65,6 +69,7 @@
                                 Kí</button>
                         </div>
                     </form>
+                    <p class="mt-20">Bạn đã có tài khoản ?<a [routerLink]="['/login']"> Đăng nhập</a></p>
                 </div>
             </div>
         </div>

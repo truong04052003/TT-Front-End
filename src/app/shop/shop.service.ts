@@ -26,7 +26,6 @@ export class ShopService {
   category_list() {
     return this.http.get<Category[]>(environment.urlAllCategories);
   }
-
   product_detail(id: any): Observable<Product> {
     return this.http.get<Product>(environment.urlAllproduct_detail + '/' + id);
   }
