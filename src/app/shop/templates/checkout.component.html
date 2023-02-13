@@ -73,7 +73,7 @@
                 <input type="text" class="form-control" formControlName="note" value="">
               </div>
             </div>
-            <button type="submit" class="btn btn-main pull-right">Đặt hàng</button>
+            <button [disabled]="!CheckoutFrom.valid" type="submit" class="btn btn-main pull-right">Đặt hàng</button>
           </form>
         </div>
 

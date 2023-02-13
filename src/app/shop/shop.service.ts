@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
-import { Product,Images,Category } from './shop';
+import { Product, Images, Category } from './shop';
 @Injectable({
   providedIn: 'root'
 })
@@ -47,7 +47,7 @@ export class ShopService {
   urlUpdatequantity(id: any, amount: any) {
     return this.http.get(environment.urlUpdatequantity + id + '/' + amount);
   }
-  showOrder(id: any){
+  showOrder(id: any) {
     return this.http.get(environment.urlOrderShow);
   }
   searchProductList(name: string) {
@@ -61,10 +61,10 @@ export class ShopService {
     });
     return response;
   }
-  getAllCart(){
+  getAllCart() {
     return this.http.get(environment.urlGetAllCart);
   }
-  storeOrder(request: any){
+  storeOrder(request: any) {
     return this.http.post(environment.urlOrderStore, request);
   }
 
