@@ -13,9 +13,9 @@ import { ShopService } from '../shop.service';
 
 export class HeaderComponent implements OnInit {
 
-  products: any;
+  search_products: any;
   listCart: any;
-  url: string = environment.url;
+  url: string = environment.url + 'public/uploads/';
   customer_id: any;
   orders: any;
   id_user: any;
@@ -74,7 +74,7 @@ profile(){
   handdleSearch(name: any) {
     const keywork = name.target.value;
     const search = this.shopService.searchProductList(keywork).then(res => {
-      this.products = res;
+      this.search_products = res;
       console.log(res);
 
 
