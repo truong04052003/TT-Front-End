@@ -22,10 +22,8 @@
 							<ul class="dropdown-menu">
 								<li class="nav-item"><a class="nav-link" [routerLink]="['/products']">Tất cả sản
 										phẩm</a></li>
-								<!-- <li class="nav-item"><a class="nav-link" href="category.html">Danh mục</a></li> -->
 								<li class="nav-item"><a class="nav-link" [routerLink]="['/listorder']">Xem Giỏ Hàng</a>
 								</li>
-
 								<li class="nav-item"><a class="nav-link" [routerLink]="['/checkout']">Thanh toán </a>
 								</li>
 								<li class="nav-item"><a class="nav-link" [routerLink]="['/order-detail']">Xác nhận</a>
@@ -35,15 +33,8 @@
 						<li class="nav-item submenu dropdown">
 							<a [routerLink]="['/register']" class="nav-link dropdown-toggle" data-toggle="dropdown"
 								role="button" aria-haspopup="true" aria-expanded="false">Đăng ký</a>
-
-								<li class="nav-item"><a class="nav-link" [routerLink]="['/checkout']">Thanh toán sản
-										phẩm</a></li>
-							</ul>
-
 						</li>
-
 						<li class="nav-item submenu dropdown">
-
 							<a [routerLink]="['/login']" class="nav-link dropdown-toggle" data-toggle="dropdown"
 								role="button" aria-haspopup="true" aria-expanded="false"><span *ngIf="!check">
 									<a href="#" class="join" [routerLink]="['/login']">Đăng Nhập</a></span>{{name}}<span
@@ -55,7 +46,6 @@
 										Đăng Xuất
 									</a>
 								</li>
-
 							</ul>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="https://zalo.me/0343689757">Hỗ trợ</a></li>
@@ -92,25 +82,5 @@
 			</form>
 		</div>
 	</div>
-	<!-- <div class="navbar-search search-style-5">
-		<form action="">
-		  <div class="search-input">
-			<input class="form-control" type="text" placeholder="Tìm kiếm nhanh" aria-label="Number"
-			  matInput (input)="handdleSearch($event)" [matAutocomplete]="auto">
-			<mat-autocomplete #auto="matAutocomplete">
-			  <ng-container *ngFor="let product of products ">
-				<a (click)="reloadCurrentPage(product.id)">
-				  <mat-option class="search_main" [value]="product.name">
-					<span><img id="search_image" class="search_image" [src]="url+'public/uploads/'+product.image"
-						[alt]="product.name">
-					  {{product.name}}
-					  <b class="price_search">{{ product.price | number }}vnd</b></span>
-				  </mat-option>
-				</a>
-				<hr>
-			  </ng-container>
-			</mat-autocomplete>
-		  </div>
-		</form>
-	  </div> -->
+	
 </header>
