@@ -24,7 +24,7 @@
 					<div class="hover">
 						<h4>Chào mừng bạn đến với chúng tôi !!</h4>
 						<p>MUA BÁN SÁO TRÚC CHUYÊN NGHIỆP, SÁO TRÚC CAO CẤP SỐ 1 VIỆT NAM</p>
-						<a class="primary-btn" [routerLink]="['/register']">Create an Account</a>
+						<a class="primary-btn" [routerLink]="['/register']"> Đăng kí tài khoản</a>
 					</div>
 				</div>
 			</div>
@@ -42,8 +42,8 @@
 									class="help-block text-danger">Email không được rỗng!</p>
 							</div>
 							<div class="form-group">
-								<input ngModel #price="ngModel" required minlength="3" type="password" class="form-control"
-									name="password" placeholder="password">
+								<input ngModel #price="ngModel" required minlength="3" type="password"
+									class="form-control" name="password" placeholder="password">
 
 								<p *ngIf="name.invalid && (price.dirty || price.touched) && price.errors?.['required']"
 									class="help-block text-danger">Password không được rỗng!</p>
@@ -53,6 +53,9 @@
 									Nhập</button>
 							</div>
 						</form>
+						<p class="mt-20">Bạn chưa có tài khoản ??<a [routerLink]="['/register']" class="btn common-btn btn"> Đăng kí tài khoản</a></p>
+
+
 					</div>
 				</div>
 			</div>

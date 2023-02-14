@@ -56,7 +56,7 @@ export class CheckoutComponent {
 
   profile() {
     if (this._UserService.checkAuth()) {
-      console.log('đăng nhập rồi');
+      console.log('đã đăng nhập');
       this._UserService.profile().subscribe(res => {
         this.id = res.id;
         this.name = res.name;

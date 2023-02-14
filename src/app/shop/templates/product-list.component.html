@@ -1,18 +1,77 @@
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Tất cả sản phẩm</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html">Trang chủ<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#">Sản phẩm<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="">Danh sách sản phẩm</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End Banner Area -->
+<div class="container">
+    <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-5">
+            <div class="sidebar-categories">
+                <ul>
+                    <li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable"><span
+                                class="lnr lnr-arrow-right"></span>Danh sách thể loại</a>
+                        <ul class="collapse" id="fruitsVegetable" data-toggle="collapse" aria-expanded="false"
+                            aria-controls="fruitsVegetable">
+                            <li class="main-nav-list child"><a (click)="product_list()">Tất cả</a> </li>
+                            <li class="main-nav-list child" *ngFor="let category of categories">
+                                <a (click)="product_OfCate(category.id)">{{category.name}}</a>
+                            </li>
+                          
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+        
+        <div class="col-xl-9 col-lg-8 col-md-7">
+            <!-- Start Filter Bar -->
+            <div class="filter-bar d-flex flex-wrap align-items-center">
+                <div class="sorting">
+                    <select>
+                        <option value="1">Default sorting</option>
+                        <option value="1">Default sorting</option>
+                        <option value="1">Default sorting</option>
+                    </select>
+                </div>
+                <div class="sorting mr-auto">
+                    <select>
+                        <option value="1">25</option>
+                        <option value="1">50</option>
+                        <option value="1">100</option>
+                    </select>
+                </div>
+                <div class="pagination">
+                    <a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+                    <a (click)="product_list()" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                    <a href="#">6</a>
+                    <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <section class="owl-carousel active-product-area section_gap">
     <!-- single product slide -->
     <div class="single-product-slider">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 text-center">
-                    <div class="section-title">
-                        <!-- <h1>{{ products }}</h1> -->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore
-                            magna aliqua.</p>
-                    </div>
-                </div>
-            </div>
+
             <div class="row">
                 <!-- CSS SỔ ẢNH  -->
                 <style>
@@ -20,11 +79,13 @@
                         width: 250px;
                         height: 250px;
                     }
+
+              
                 </style>
                 <!-- <h1>234567890</h1> -->
                 <div class="col-lg-3 col-md-6" *ngFor="let product of products">
                     <div class="single-product">
-                        <img class="img-fluid" [src]=" url+'public/uploads/'+ product.image">
+                        <img class="img-fluid" [src]=" url+'public/uploads/'+ product.image" [alt]="product.name">
                         <div class="product-details">
                             <h6><a [routerLink]="['/product-detail/' + product.id]">{{ product.name }}</a></h6>
                             <div class="price">
@@ -54,3 +115,4 @@
     </div>
 
 </section>
+

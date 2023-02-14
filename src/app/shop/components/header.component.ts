@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { ShopService } from '../shop.service';
 import { AuthService } from '../auth.service';
+import { ShopService } from '../shop.service';
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './../templates/header.component.html',
 })
+
 export class HeaderComponent implements OnInit {
+
   products: any;
   listCart: any;
   url: string = environment.url;
