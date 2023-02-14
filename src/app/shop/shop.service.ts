@@ -66,5 +66,8 @@ export class ShopService {
   storeOrder(request: any) {
     return this.http.post(environment.urlOrderStore, request);
   }
+  trending_top(): Observable<Product[]> {
+    return this.http.get<Product[]>(environment.urlTrendingPro);
+  }
 
 }

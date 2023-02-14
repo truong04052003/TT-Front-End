@@ -25,6 +25,7 @@ export class ProductListComponent implements OnInit {
     this.shopService.product_list().subscribe(res => {
       this.products = res;
     });
+    
   }
   addToCart(id: number) {
     this.shopService.addToCart(id).subscribe(res => {
@@ -67,6 +68,7 @@ export class ProductListComponent implements OnInit {
       }
     })
   }
+  
   
 
 
