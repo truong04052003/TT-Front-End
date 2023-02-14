@@ -26,6 +26,8 @@ export class ListorderComponent {
     this.ShopService.deleteCart(id).subscribe(res => {
       this.ShopService.getListOrder(this.customer_id).subscribe(res => {
         this.orders = res;
+        // console.log(this.orders);
+        
         // thông báo
         const Toast = Swal.mixin({
           toast: true,
