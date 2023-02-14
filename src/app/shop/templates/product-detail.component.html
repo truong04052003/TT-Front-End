@@ -6,7 +6,6 @@
 			<div class="col-lg-6">
 				<div class="s_Product_carousel">
 					<div class="single-prd-item">
-						<!-- <h1>Chi Tiết Sản Phẩm</h1> -->
 						<img class="img-fluid" (click)="changeImage(product.image)" [src]="url+'public/uploads/'+products?.image"
 							[alt]="products.name">
 					</div>
@@ -14,6 +13,8 @@
 			</div>
 			<div class="col-lg-5 offset-lg-1">
 				<div class="s_product_text">
+						<h1>Chi tiết sản phẩm</h1><br><br>
+
 					<h3>{{ products.name }}</h3>
 					<h2>{{ products.price|number }}VND</h2>
 					<h6>Thể Loại:{{ products.category.name }}</h6>
