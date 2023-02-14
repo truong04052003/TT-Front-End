@@ -1,0 +1,77 @@
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Đăng ký</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html">Trang chủ<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html">Đăng ký</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<style>
+    .col-lg-6 {
+        margin-left: 25%;
+    }
+</style>
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_form_inner">
+                    <h3>Đăng ký</h3>
+                    <form #formProduct="ngForm" (ngSubmit)="onSubmit(formProduct.value)" class="row login_form"
+                        method="post">
+                        <div class="col-md-12 form-group">
+                            <input ngModel #name="ngModel" required type="text" class="form-control" name="name"
+                                placeholder="Họ và Tên">
+                            <p *ngIf="name.invalid && (name.dirty || name.touched) && name.errors?.['required']"
+                                class="help-block text-danger">Họ và Tên không được rỗng!</p>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input ngModel #email="ngModel" required type="text" class="form-control" name="email"
+                                placeholder="Email của bạn">
+                            <p *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['required']"
+                                class="help-block text-danger">Email không được rỗng!</p>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input ngModel #phone="ngModel" required type="text" class="form-control" name="phone"
+                                placeholder="Số điện thoại của bạn">
+                            <p *ngIf="phone.invalid && (phone.dirty || phone.touched) && phone.errors?.['required']"
+                                class="help-block text-danger">Số điện thoại không được rỗng!</p>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input ngModel #address="ngModel" required type="text" class="form-control" name="address"
+                                placeholder="Địa chỉ của bạn">
+                            <p *ngIf="address.invalid && (address.dirty || address.touched) && address.errors?.['required']"
+                                class="help-block text-danger">Địa chỉ không được rỗng!</p>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input ngModel #password="ngModel" required type="password" class="form-control"
+                                name="password" placeholder="Mật khẩu của bạn">
+                            <p *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['required']"
+                                class="help-block text-danger">Mật khẩu không được rỗng!</p>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input ngModel #confirmPassword="ngModel" required type="password" class="form-control"
+                                name="confirmPassword" placeholder="Xác nhận mật khẩu">
+                            <p *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched) && confirmPassword.errors?.['required']"
+                                class="help-block text-danger">Xác nhận mật khẩu không được rỗng!</p>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <button type="submit" [disabled]="!formProduct.valid" class="btn btn-primary">Đăng
+                                Kí</button>
+                        </div>
+                    </form>
+                    <p class="mt-20">Bạn đã có tài khoản ?<a [routerLink]="['/login']"> Đăng nhập</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

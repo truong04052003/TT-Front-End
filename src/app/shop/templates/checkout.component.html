@@ -1,0 +1,129 @@
+<style>
+  .order_box {
+    position: inherit;
+    left: 800px;
+    margin: -515px 0px 0px 0px;
+  }
+
+  img.img-fluid {
+    margin: 12px 0px 0px 200px;
+  }
+</style>
+<section class="banner-area organic-breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+      <div class="col-first">
+        <h1>Checkout</h1>
+        <nav class="d-flex align-items-center">
+          <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+          <a href="single-product.html">Checkout</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Checkout Area =================-->
+<section class="checkout_area section_gap">
+  <div class="container">
+
+
+    <div class="billing_details">
+      <div class="row">
+        <div class="col-lg-8">
+          <h3>Chi tiết thanh toán</h3>
+          <form [formGroup]="CheckoutFrom" (ngSubmit)="Order()">
+            <div class="checkout-country-code clearfix">
+              <div class="form-group">
+                <label for="post_code">Email</label>
+                <input type="email" formControlName="email" class="form-control" value="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="full_name">Tên Khách Hàng</label>
+              <input formControlName="name" type="text" class="form-control" placeholder="">
+              <div *ngIf="CheckoutFrom.invalid && (CheckoutFrom.dirty || CheckoutFrom.touched)">
+                <small class="form-text text-danger" *ngIf="CheckoutFrom.get('name')?.errors?.['required'] ">Trường Tên
+                  Bắt Buộc</small>
+              </div>
+            </div>
+            <div class="checkout-country-code clearfix">
+              <div class="form-group">
+                <label for="post_code">Số Điện Thoại</label>
+                <input type="text" class="form-control" formControlName="phone" value="">
+                <div *ngIf="CheckoutFrom.invalid && (CheckoutFrom.dirty || CheckoutFrom.touched)">
+                  <small class="form-text text-danger" *ngIf="CheckoutFrom.get('phone')?.errors?.['required'] ">Số điện
+                    thoại bắt buộc</small>
+                  <small class="form-text text-danger" *ngIf="CheckoutFrom.get('phone')?.errors?.['pattern'] ">Trường
+                    giá phải là kiểu số</small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address">Địa Chỉ</label>
+              <input formControlName="address" type="text" class="form-control" placeholder="">
+              <small class="form-text text-primary">Ví dụ: 133 Lý Thường Kiệt/ Đông Hà/Quảng Trị</small>
+              <small class="form-text text-danger" *ngIf="CheckoutFrom.get('address')?.errors?.['required'] "> Địa chỉ
+                bắt buộc</small>
+            </div>
+            <div class="checkout-country-code clearfix">
+              <div class="form-group">
+                <label for="post_code">Ghi Chú</label>
+                <input type="text" class="form-control" formControlName="note" value="">
+              </div>
+            </div>
+            <button [disabled]="!CheckoutFrom.valid" type="submit" class="btn btn-main pull-right">Đặt hàng</button>
+          </form>
+        </div>
+
+        <div *ngIf="!name" class="col-md-8">
+          <div class="row">
+            <div class="navbar-collapse collapse text-center">
+              <br><br><br><br>
+              <br><br><br><br>
+              <h1>Vui lòng đăng nhập trước khi đặt hàng nhé</h1>
+              <div class="navbar-collapse collapse text-center">
+                <a class="btn btn-main" [routerLink]="['/login']">Đăng nhập</a>
+              </div>
+            </div>
+            <br>
+            <br>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="order_box">
+            <h2>Đơn Hàng Của Bạn</h2>
+            <div>
+              <ul class="list" *ngFor="let order of orders">
+                <li><a href="#">{{ order.name }}
+                    <img style="margin-right: 200px;" [src]="url+order.image" alt="" width="100px" height="100px"
+                      class="img-fluid">
+                    <p>{{ order.price| number }} vnd x {{ order.quantity| number }} cái</p>
+                  </a>
+                <li>
+                  <hr>
+              </ul>
+              <ul class="list list_2">
+                <li>
+                  <h3>Tổng : {{ totalPrice| number }} VND </h3>
+                </li>
+                <!-- <h1>{{ totalPrice| number }} VND </h1> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--================End Checkout Area =================-->
+<!-- CSS ảnh -->
+<style>
+  img.img-fluid {
+    width: 100px;
+    height: 100px;
+  }
+</style>

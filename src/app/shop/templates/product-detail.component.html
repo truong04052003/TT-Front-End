@@ -1,0 +1,57 @@
+<!--================Single Product Area =================-->
+<br>
+<div class="product_image_area">
+	<div class="container">
+		<div class="row s_product_inner">
+			<div class="col-lg-6">
+				<div class="s_Product_carousel">
+					<div class="single-prd-item">
+						<!-- <h1>Chi Tiết Sản Phẩm</h1> -->
+						<img class="img-fluid" (click)="changeImage(product.image)" [src]="url+'public/uploads/'+products?.image"
+							[alt]="products.name">
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 offset-lg-1">
+				<div class="s_product_text">
+					<h3>{{ products.name }}</h3>
+					<h2>{{ products.price|number }}VND</h2>
+					<h6>Thể Loại:{{ products.category.name }}</h6>
+					<h6>Nhà Cung Cấp:{{ products.category.name }}</h6>
+					<h6>Số Lượng:{{ products.quantity }}</h6>
+					<p>{{ products.description }}</p>
+					<div class='carousel slide' data-ride='carousel'>
+						<ol class='carousel-indicators'>
+							<li *ngFor="let item of products.image_products">
+								<img (click)="changeImage(item.image)" [src]="url+item?.image" [alt]="item.image"
+								class="act">
+							</li>
+							<li><br><br><br>
+								<img (click)="changeImage(products.image)" [src]="url+products.image" class="act">
+							</li><br><br><br><br><br>
+						</ol>
+					</div>
+					<a (click)="addToCart(products.id)" class="btn btn-info text-white">Thêm Vào giỏ
+						Hàng</a><br><br><br><br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- css ảnh  -->
+<style>
+	img.img-fluid {
+		width: 350px;
+		height: 250px;
+	}
+
+	img.act {
+		width: 150px;
+		height: 150px;
+		display: inline-block;
+		padding: 6px;
+
+		margin: 66px 0px 0px 163px;
+	}
+	
+</style>
