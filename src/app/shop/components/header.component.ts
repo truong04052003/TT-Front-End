@@ -1,14 +1,18 @@
+
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 import { ShopService } from '../shop.service';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './../templates/header.component.html',
 })
-export class HeaderComponent {
+
+export class HeaderComponent implements OnInit {
+
   products: any;
   listCart: any;
   url: string = environment.url;
@@ -72,6 +76,7 @@ profile(){
     const search = this.shopService.searchProductList(keywork).then(res => {
       this.products = res;
       console.log(res);
+
 
     })
   }

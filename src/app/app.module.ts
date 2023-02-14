@@ -1,4 +1,10 @@
 import { NgModule } from '@angular/core';
+
+
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +36,9 @@ import { HomeComponent } from './shop/components/home.component';
     ShopModule,
     ShopRoutingModule,
     BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatSliderModule,
+    MatInputModule
 
 
 
