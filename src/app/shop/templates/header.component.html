@@ -1,4 +1,14 @@
 <!-- Start Header Area -->
+<style>
+	ul.mat-mdc-autocomplete.ng-tns-c80-0 {
+    position: absolute;
+    top: 40px;
+    background: white;
+    width: 100%;
+    text-align: left;
+    left: 0;
+}
+</style>
 <header class="header_area sticky-header">
 	<div class="main_menu">
 		<nav class="navbar navbar-expand-lg navbar-light main_box">
@@ -32,35 +42,31 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item submenu dropdown">
-							<a [routerLink]="['/register']" class="nav-link dropdown-toggle" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false">Đăng ký</a>
 
-								<li class="nav-item"><a class="nav-link" [routerLink]="['/checkout']">Thanh toán sản
-										phẩm</a></li>
-							</ul>
 
+						<li class="nav-item">
+							<a class="nav-link" [routerLink]="['/checkout']">Thanh toán sản phẩm</a>
 						</li>
 
-						<li class="nav-item submenu dropdown">
-
-							<a [routerLink]="['/login']" class="nav-link dropdown-toggle" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false"><span *ngIf="!check">
-									<a href="#" class="join" [routerLink]="['/login']">Đăng Nhập</a></span>{{name}}<span
-									class="tf-ion-ios-arrow-down"></span></a>
-							<ul *ngIf="check" class="dropdown-menu">
-								<li>
-									<a href="#" class="join" (click)="logout()">
-										<i class="flaticon-round-account-button-with-user-inside"></i>
-										Đăng Xuất
-									</a>
-								</li>
-
-							</ul>
+						<li class="nav-item " *ngIf="!check">
+							<a [routerLink]="['/register']" class="nav-link ">Đăng ký</a>
 						</li>
+						<li class="nav-item " *ngIf="!check">
+							<a [routerLink]="['/login']" class="nav-link">
+								Đăng Nhập
+							</a>
+						</li>
+						<li class="nav-item " *ngIf="check">
+							<a  class="nav-link ">Xin Chào {{name}}</a>
+						</li>
+						<li class="nav-item " *ngIf="check">
+							<a href="#" class="nav-link " (click)="logout()">
+								Đăng Xuất
+							</a>
+						</li>
+						
 						<li class="nav-item"><a class="nav-link" href="https://zalo.me/0343689757">Hỗ trợ</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
+						<!-- <ul class="nav navbar-nav navbar-right"> -->
 						<li class="nav-item"><a [routerLink]="['/listorder']" class="fa fa-shopping-cart"
 								style="font-size:30px;color:red"><span></span></a></li>
 						<li class="nav-item">
@@ -75,20 +81,20 @@
 		<div class="container">
 			<form class="d-flex justify-content-between">
 				<input class="form-control" type="text" placeholder="Tìm kiếm nhanh" aria-label="Number" matInput
-					(input)="handdleSearch($event)" [matAutocomplete]="auto">
-				<mat-autocomplete #auto="matAutocomplete">
-					<ng-container *ngFor="let product of products ">
-						<a (click)="reloadCurrentPage(product.id)">
-							<mat-option class="search_main" [value]="product.name">
-								<span><img id="search_image" class="search_image" [src]="url+'/public/uploads/'+product.image"
-										[alt]="product.name">
+					(input)="handdleSearch($event)" >
+
+				<ul class="mat-mdc-autocomplete ng-tns-c80-0">
+					<ng-container *ngFor="let product of search_products ">
+						<li class="search_main" [value]="product.name">
+							<a (click)="reloadCurrentPage(product.id)">
+								<span><img id="search_image" class="search_image"
+										[src]="url+product.image" [alt]="product.name" width="50px" height="50px">
 									{{product.name}}
 									<b class="price_search">{{ product.price | number }}vnd</b></span>
-							</mat-option>
-						</a>
-						<hr>
+								</a>
+							</li>
 					</ng-container>
-				</mat-autocomplete>
+				</ul>
 			</form>
 		</div>
 	</div>
