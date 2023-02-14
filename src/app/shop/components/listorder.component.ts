@@ -58,7 +58,7 @@ export class ListorderComponent {
       this.orders = res;
       console.log(res);
       for (let orderDetail of this.orders) {
-        this.totalPrice += (parseInt(orderDetail.price) * parseInt(orderDetail.quantity));
+        this.totalPrice = (parseInt(orderDetail.price) * parseInt(orderDetail.quantity));
       }
     })
   }
