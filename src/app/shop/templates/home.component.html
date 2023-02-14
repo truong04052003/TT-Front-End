@@ -87,37 +87,7 @@
 <!-- start product Area -->
 <section class="owl-carousel active-product-area section_gap">
     <!-- single product slide -->
-    <div class="single-product-slider">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 text-center">
-                    <div class="section-title">
-                        <h1>Sản Phẩm Yêu Thích</h1>
-                        <p>Chuẩn âm trên từng phím bấm</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <!-- single product -->
-                <div class="col-lg-3 col-md-6" *ngFor="let product of trending_top">
-                    <div class="single-product">
-                        <a href="#!">
-                            <img id="trendingprd" [src]=" url+'public/uploads/'+ product.image" class="img-fluid"
-                                alt="">
-                            <div class="product-details">
-                                <a [routerLink]="['/product-detail/' + product.id]"></a>
-                                <h6>{{product.name}}</h6>
-                                <div class="content">
-                                    <h6>Sản Phẩm Được Yêu Thích</h6>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- CSS anh san pham moi  -->
     <style>
@@ -155,10 +125,6 @@
                                 <a (click)="addToCart(product.id)" class="social-info">
                                     <span class="ti-bag"></span>
                                     <p class="hover-text">Giỏ hàng</p>
-                                </a>
-                                <a href="#!" class="social-info">
-                                    <span class="lnr lnr-heart"></span>
-                                    <p class="hover-text">Yêu thích</p>
                                 </a>
                                 <a [routerLink]="['/product-detail/' + product.id]" class="social-info">
                                     <span class="lnr lnr-move"></span>
