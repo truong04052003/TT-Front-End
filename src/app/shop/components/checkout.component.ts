@@ -63,6 +63,8 @@ export class CheckoutComponent {
         this.email = res.email;
         this.phone = res.phone;
       });
+    }else{
+      this._Router.navigate(['login']);
     }
   }
 
