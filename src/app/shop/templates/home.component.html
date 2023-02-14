@@ -83,7 +83,49 @@
 <!-- end features Area -->
 
 
+<!-- start product Area -->
+<section class="owl-carousel active-product-area section_gap">
+    <!-- single product slide -->
+    <div class="single-product-slider">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <div class="section-title">
+                        <h1>Sản phẩm bán chạy</h1>
+                        <p>Chuẩn âm trên từng phím bấm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- single product -->
+                <div class="col-lg-3 col-md-6"  *ngFor="let product of trending_top">
+                    <div class="single-product">
+                        <img id="trendingprd" [src]=" url+'public/uploads/'+ product.image" alt="" class="img-fluid">
+                        <div class="product-details">
+                            <h6>{{product.name}}</h6>
+                            <div class="price">
+                                <h6>{{ product.price | number }}(VND)</h6>
+                            </div>
+                            <div class="prd-bottom">
 
+                                <a (click)="addToCart(product.id)" class="social-info">
+                                    <span class="ti-bag"></span>
+                                    <p class="hover-text">Giỏ hàng</p>
+                                </a>
+                                <a [routerLink]="['/product-detail/' + product.id]" class="social-info">
+                                    <span class="lnr lnr-move"></span>
+                                    <p class="hover-text">Chi tiết</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
 <!-- start product Area -->
 <section class="owl-carousel active-product-area section_gap">
     <!-- single product slide -->
