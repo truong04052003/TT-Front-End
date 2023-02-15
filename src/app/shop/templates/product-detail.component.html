@@ -14,11 +14,10 @@
 			<div class="col-lg-5 offset-lg-1">
 				<div class="s_product_text">
 						<h1>Chi tiết sản phẩm</h1><br><br>
-
 					<h3>{{ products.name }}</h3>
 					<h2>{{ products.price|number }}VND</h2>
 					<h6>Thể Loại:{{ products.category.name }}</h6>
-					<h6>Nhà Cung Cấp:{{ products.category.name }}</h6>
+					<h6>Nhà Cung Cấp:{{ products.supplier.name }}</h6>
 					<h6>Số Lượng:{{ products.quantity }}</h6>
 					<p>{{ products.description }}</p>
 					<div class='carousel slide' data-ride='carousel'>

@@ -39,7 +39,7 @@ export class ProductDetailComponent {
     this.id = this._route.snapshot.params['id'];
     this.shopService.product_detail(this.id).subscribe(res =>{
       this.products = res;
-      // console.log(res);
+      // console.log(this.products);
       
       for( let product of this.products){
         this.product = product;
