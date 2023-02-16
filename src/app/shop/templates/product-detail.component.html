@@ -6,31 +6,28 @@
 			<div class="col-lg-6">
 				<div class="s_Product_carousel">
 					<div class="single-prd-item">
-						<img class="img-fluid" (click)="changeImage(product.image)" [src]="url+'public/uploads/'+products?.image"
+						<img class="img-fluid" (click)="changeImage(product.image)" [src]="image1"
 							[alt]="products.name">
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-5 offset-lg-1">
 				<div class="s_product_text">
-						<h1>Chi tiết sản phẩm</h1><br><br>
+					<h1>Chi tiết sản phẩm</h1><br><br>
 					<h3>{{ products.name }}</h3>
 					<h2>{{ products.price|number }}VND</h2>
-					<h6>Thể Loại:{{ products.category.name }}</h6>
-					<h6>Nhà Cung Cấp:{{ products.supplier.name }}</h6>
-					<h6>Số Lượng:{{ products.quantity }}</h6>
-					<p>{{ products.description }}</p>
+					<h6>Thể Loại: {{ products.category.name }}</h6>
+					<h6>Nhà Cung Cấp: {{ products.supplier.name }}</h6>
+					<h6>Số Lượng: {{ products.quantity }}</h6> <br>
+					<b>Thông tin sản phẩm </b> : <br> <i>{{ products.description }}</i>
 					<div class='carousel slide' data-ride='carousel'>
 						<ol class='carousel-indicators'>
 							<li *ngFor="let item of products.image_products">
 								<img (click)="changeImage(item.image)" [src]="url+item?.image" [alt]="item.image"
-								class="act">
+									class="act">
 							</li>
-							<li><br><br><br>
-								<img (click)="changeImage(products.image)" [src]="url+products.image" class="act">
-							</li><br><br><br><br><br>
 						</ol>
-					</div>
+					</div><br>
 					<a (click)="addToCart(products.id)" class="btn btn-info text-white">Thêm Vào giỏ
 						Hàng</a><br><br><br><br>
 				</div>
@@ -41,17 +38,17 @@
 <!-- css ảnh  -->
 <style>
 	img.img-fluid {
-		width: 350px;
-		height: 250px;
+		width: 390px;
+		height: 290px;
+		margin: 169px 0px 0px 68px;
 	}
 
 	img.act {
-		width: 150px;
-		height: 150px;
+		width: 100px;
+		height: 100px;
 		display: inline-block;
 		padding: 6px;
-
-		margin: 66px 0px 0px 163px;
+		margin: 50px 0px 0px 300px;
+		opacity: 1;
 	}
-	
 </style>
