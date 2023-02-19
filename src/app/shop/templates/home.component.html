@@ -1,4 +1,4 @@
-<!-- start banner Area -->
+
 
 <section class="banner-area">
     <div class="container">
@@ -31,9 +31,6 @@
         </div>
     </div>
 </section>
-<!-- End banner Area -->
-
-<!-- start features Area -->
 <section class="features-area section_gap">
     <div class="container">
         <div class="row features-inner">
@@ -80,11 +77,6 @@
         </div>
     </div>
 </section>
-<!-- end features Area -->
-
-
-
-<!-- start product Area -->
 <section class="owl-carousel active-product-area section_gap">
     <!-- single product slide -->
     <div class="single-product-slider">
@@ -92,73 +84,25 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <div class="section-title">
-                        <h1>Sản Phẩm Yêu Thích</h1>
+                        <h1>Sản phẩm bán chạy</h1>
                         <p>Chuẩn âm trên từng phím bấm</p>
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <!-- single product -->
                 <div class="col-lg-3 col-md-6" *ngFor="let product of trending_top">
                     <div class="single-product">
-                        <a href="#!">
-                            <img id="trendingprd" [src]=" url+'public/uploads/'+ product.image" class="img-fluid"
-                                alt="">
-                            <div class="product-details">
-                                <a [routerLink]="['/product-detail/' + product.id]"></a>
-                                <h6>{{product.name}}</h6>
-                                <div class="content">
-                                    <h6>Sản Phẩm Được Yêu Thích</h6>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- CSS anh san pham moi  -->
-    <style>
-        img#prdnew {
-            width: 250px;
-            height: 250px;
-        }
-    </style>
-
-    <div class="single-product-slider">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 text-center">
-                    <div class="section-title">
-                        <h1>Sản Phẩm Mới</h1>
-                        <p>Chuẩn âm trên từng phím bấm</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <!-- single product -->
-                <div class="col-lg-3 col-md-6" *ngFor="let product of product_New">
-                    <div class="single-product">
-                        <img id="prdnew" [src]=" url+'public/uploads/'+ product.image" alt="">
+                        <img id="trendingprd" [src]=" url+'public/uploads/'+ product.image" alt="" class="img-fluid">
                         <div class="product-details">
-                            <h6>
-                                <a [routerLink]="['/product-detail/' + product.id]">{{ product.name }}</a>
-                            </h6>
+                            <h6>{{product.name}}</h6>
                             <div class="price">
-                                <h6>{{ product.price |number}} VND</h6>
-                                <!-- <h6 class="l-through">$210.00</h6> -->
+                                <h6>{{ product.price | number }}(VND)</h6>
                             </div>
                             <div class="prd-bottom">
-
                                 <a (click)="addToCart(product.id)" class="social-info">
                                     <span class="ti-bag"></span>
                                     <p class="hover-text">Giỏ hàng</p>
-                                </a>
-                                <a href="#!" class="social-info">
-                                    <span class="lnr lnr-heart"></span>
-                                    <p class="hover-text">Yêu thích</p>
                                 </a>
                                 <a [routerLink]="['/product-detail/' + product.id]" class="social-info">
                                     <span class="lnr lnr-move"></span>
@@ -168,16 +112,64 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+        <section class="owl-carousel active-product-area section_gap">
+            <!-- CSS anh san pham moi  -->
+            <style>
+                img#prdnew {
+                    width: 250px;
+                    height: 240px;
+                }
+        
+                img#trendingprd {
+                    width: 250px;
+                    height: 240px;
+                }
+            </style>
+            <div class="single-product-slider">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <div class="section-title">
+                                <h1>Sản Phẩm Mới</h1>
+                                <p>Chuẩn âm trên từng phím bấm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- single product -->
+                        <div class="col-lg-3 col-md-6" *ngFor="let product of product_New">
+                            <div class="single-product">
+                                <img id="prdnew" [src]=" url+'public/uploads/'+ product.image" alt="">
+                                <div class="product-details">
+                                    <h6>
+                                        <a [routerLink]="['/product-detail/' + product.id]">{{ product.name }}</a>
+                                    </h6>
+                                    <div class="price">
+                                        <h6>{{ product.price |number}} VND</h6>
+                                        <!-- <h6 class="l-through">$210.00</h6> -->
+                                    </div>
+                                    <div class="prd-bottom">
+                                        <a (click)="addToCart(product.id)" class="social-info">
+                                            <span class="ti-bag"></span>
+                                            <p class="hover-text">Giỏ hàng</p>
+                                        </a>
+                                        <a [routerLink]="['/product-detail/' + product.id]" class="social-info">
+                                            <span class="lnr lnr-move"></span>
+                                            <p class="hover-text">Chi tiết</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
 </section>
-<!-- end product Area -->
-
-
-
-<!-- Start brand Area -->
 <section class="brand-area section_gap">
     <div class="container">
         <div class="row">
@@ -199,4 +191,3 @@
         </div>
     </div>
 </section>
-<!-- End brand Area -->

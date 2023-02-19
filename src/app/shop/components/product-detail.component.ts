@@ -39,14 +39,7 @@ export class ProductDetailComponent {
     this.id = this._route.snapshot.params['id'];
     this.shopService.product_detail(this.id).subscribe(res =>{
       this.products = res;
-      // console.log(res);
-      
-      for( let product of this.products){
-        this.product = product;
-        this.image1 = this.url_image+this.product.image;
-        this.cate_id=this.product.category_id;
-      }
-      // this.trending();image.product_images  this.product.image
+      this.image1 = this.url +'public/uploads/'+ this.products?.image;
     });
 
    this.shopService.product_images(this.id).subscribe(res => {
@@ -54,12 +47,12 @@ export class ProductDetailComponent {
       this.imageAll = this.images.image_products
       for (i = 0; i < this.imageAll.length; i++) {
         this.image_tt = this.imageAll[i]
-        this.images_array.push(this.image_tt.image)
+        this.images_array.push(this.url + this.image_tt.image)
       }
-      this.images_array.push(this.products.image);
+      this.images_array.push(this.image1);
       var i = 0;
       this.inter = setInterval(() => {
-        this.image1 = this.url + this.images_array[i];
+        this.image1 = this.images_array[i];
         i++;
         if (i >= this.images_array.length) {
           i = 0;
@@ -88,13 +81,13 @@ export class ProductDetailComponent {
 
       Toast.fire({
         icon: 'success',
-        title: 'Sản Phẩm Đã được thêm vào giỏ hàng!'
+        title: 'Sản phẩm đã được thêm vào giỏ hàng!'
       })
       // kết thúc thông báo
     })
   }
   changeImage(image:any){
-    this.image1 = this.url_image + image;
+    this.image1 =this.url + image;
   }
   resetInterval() {
     clearInterval(this.inter);

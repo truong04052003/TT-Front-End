@@ -1,13 +1,13 @@
 <!-- Start Header Area -->
 <style>
 	ul.mat-mdc-autocomplete.ng-tns-c80-0 {
-    position: absolute;
-    top: 40px;
-    background: white;
-    width: 100%;
-    text-align: left;
-    left: 0;
-}
+		position: absolute;
+		top: 40px;
+		background: white;
+		width: 100%;
+		text-align: left;
+		left: 0;
+	}
 </style>
 <header class="header_area sticky-header">
 	<div class="main_menu">
@@ -54,7 +54,7 @@
 							</a>
 						</li>
 						<li class="nav-item " *ngIf="check">
-							<a  class="nav-link ">Xin Chào {{name}}</a>
+							<a class="nav-link ">Xin Chào {{name}}</a>
 
 						</li>
 						<li class="nav-item " *ngIf="check">
@@ -62,7 +62,7 @@
 								Đăng Xuất
 							</a>
 						</li>
-						
+
 						<li class="nav-item"><a class="nav-link" href="https://zalo.me/0343689757">Hỗ trợ</a></li>
 						<!-- <ul class="nav navbar-nav navbar-right"> -->
 						<li class="nav-item"><a [routerLink]="['/listorder']" class="fa fa-shopping-cart"
@@ -79,22 +79,22 @@
 		<div class="container">
 			<form class="d-flex justify-content-between">
 				<input class="form-control" type="text" placeholder="Tìm kiếm nhanh" aria-label="Number" matInput
-					(input)="handdleSearch($event)" >
+					(input)="handdleSearch($event)">
 
 				<ul class="mat-mdc-autocomplete ng-tns-c80-0">
 					<ng-container *ngFor="let product of search_products ">
 						<li class="search_main" [value]="product.name">
 							<a (click)="reloadCurrentPage(product.id)">
-								<span><img id="search_image" class="search_image"
-										[src]="url+product.image" [alt]="product.name" width="50px" height="50px">
+								<span><img id="search_image" class="search_image" [src]="url+product.image"
+										[alt]="product.name" width="50px" height="50px">
 									{{product.name}}
 									<b class="price_search">{{ product.price | number }}vnd</b></span>
-								</a>
-							</li>
+							</a>
+						</li>
 					</ng-container>
 				</ul>
 			</form>
 		</div>
 	</div>
-	
+
 </header>

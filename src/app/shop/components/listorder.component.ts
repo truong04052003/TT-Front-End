@@ -26,6 +26,8 @@ export class ListorderComponent {
     this.ShopService.deleteCart(id).subscribe(res => {
       this.ShopService.getListOrder(this.customer_id).subscribe(res => {
         this.orders = res;
+        // console.log(this.orders);
+        
         // thông báo
         const Toast = Swal.mixin({
           toast: true,
@@ -56,7 +58,7 @@ export class ListorderComponent {
       this.orders = res;
       console.log(res);
       for (let orderDetail of this.orders) {
-        this.totalPrice += (parseInt(orderDetail.price) * parseInt(orderDetail.quantity));
+        this.totalPrice = (parseInt(orderDetail.price) * parseInt(orderDetail.quantity));
       }
     })
   }
